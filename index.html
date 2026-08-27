@@ -1,482 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Welmar B. Zaratar, CPA, CTT, Finance Transformation Leader, Accounting Manager, and Automation Developer.">
+  <meta name="theme-color" content="#020617">
+  <title>Welmar B. Zaratar, CPA, CTT | Portfolio</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-<title>Welmar B. Zaratar, CPA, CTT</title>
-
-<style>
-
-:root{
-    --primary:#0F172A;
-    --secondary:#1D4ED8;
-    --accent:#38BDF8;
-    --light:#F8FAFC;
-    --text:#475569;
-    --white:#FFFFFF;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:#F1F5F9;
-    color:var(--text);
-    line-height:1.7;
-}
-
-header{
-    background:linear-gradient(135deg,#0F172A,#1E40AF);
-    color:white;
-    padding:120px 10%;
-}
-
-.hero{
-    max-width:1000px;
-}
-
-.hero h1{
-    font-size:58px;
-    margin-bottom:10px;
-}
-
-.hero h2{
-    font-weight:300;
-    color:#DBEAFE;
-    margin-bottom:25px;
-}
-
-.hero p{
-    max-width:800px;
-    font-size:18px;
-}
-
-.button-group{
-    margin-top:35px;
-}
-
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    padding:14px 28px;
-    margin:8px;
-    border-radius:8px;
-    color:white;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:#38BDF8;
-}
-
-.btn-secondary{
-    background:#2563EB;
-}
-
-.btn-dark{
-    background:#334155;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-nav{
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:999;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-nav ul{
-    display:flex;
-    justify-content:center;
-    list-style:none;
-    flex-wrap:wrap;
-}
-
-nav li{
-    padding:18px;
-}
-
-nav a{
-    text-decoration:none;
-    color:var(--primary);
-    font-weight:600;
-}
-
-nav a:hover{
-    color:var(--secondary);
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-section{
-    padding:80px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    color:var(--primary);
-    font-size:36px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.stat-card{
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.stat-card h3{
-    color:var(--secondary);
-    font-size:42px;
-}
-
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-.skill{
-    background:#DBEAFE;
-    color:#1E3A8A;
-    padding:10px 16px;
-    border-radius:40px;
-    font-weight:600;
-}
-
-.timeline{
-    border-left:4px solid var(--secondary);
-    margin-left:15px;
-    padding-left:30px;
-}
-
-.timeline-item{
-    margin-bottom:40px;
-}
-
-.timeline-item h4{
-    color:var(--primary);
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.cert-card{
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.cert-card a{
-    color:#2563EB;
-    text-decoration:none;
-}
-
-footer{
-    background:var(--primary);
-    color:white;
-    text-align:center;
-    padding:40px;
-}
-
-.contact p{
-    margin-bottom:12px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:40px;
-}
-
-.hero h2{
-    font-size:20px;
-}
-
-}
-
-</style>
-
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.from-left { transform: translateX(-20px); }
+    .reveal.scale-in { transform: scale(.94); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .active-nav { color: rgb(125 211 252); }
+    .active-nav::after {
+      content: "";
+      position: absolute;
+      left: .75rem;
+      right: .75rem;
+      bottom: -.125rem;
+      height: 2px;
+      border-radius: 9999px;
+      background: rgb(56 189 248);
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-
-<div class="hero">
-
-<h1>Welmar B. Zaratar, CPA, CTT</h1>
-
-<h2>
-Finance Transformation Leader | Accounting Manager | Automation Developer
-</h2>
-
-<p>
-Helping organizations transform Finance through Automation,
-Technology, Data Analytics, Process Improvement, and Digital Innovation.
-Combining strong accounting expertise with modern technology solutions
-to drive efficiency, governance, and business growth.
-</p>
-
-<div class="button-group">
-
-Welmar_Zaratar_CV.pdf
-📄 Download CV
-</a>
-
-welmarzaratar67@gmail.com
-📧 Contact Me
-</a>
-
-https://www.linkedin.com/in/welmar-zaratarcpa-ctt
-🔗 LinkedIn
-</a>
-
-</div>
-
-</div>
-
-</header>
-
-<nav>
-<ul>
-<li>#aboutAbout</a></li>
-<li>#skillsSkills</a></li>
-<li>#experienceExperience</a></li>
-<li>#certificationsCertifications</a></li>
-<li>#contactContact</a></li>
-</ul>
-</nav>
-
-<div class="container">
-
-<section>
-
-<div class="stats">
-
-<div class="stat-card">
-<h3>7+</h3>
-<p>Years Experience</p>
-</div>
-
-<div class="stat-card">
-<h3>29+</h3>
-<p>Automation Initiatives</p>
-</div>
-
-<div class="stat-card">
-<h3>CPA</h3>
-<p>Licensed Accountant</p>
-</div>
-
-<div class="stat-card">
-<h3>CTT</h3>
-<p>Tax Professional</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<h2 class="section-title">About Me</h2>
-
-<div class="card">
-
-<p>
-Certified Public Accountant with more than seven years of experience across
-Finance, Accounting, Audit, Taxation, Process Automation, and Innovation.
-Experienced in SAP S/4HANA, Financial Reporting, Internal Controls,
-Digital Transformation, and Executive Reporting. Currently serving as
-Accounting Manager - Innovation, leading finance innovation projects,
-automation initiatives, and business transformation programs. 【1-62e8e7】
-</p>
-
-</div>
-
-</section>
-
-<section id="skills">
-
-<h2 class="section-title">Core Competencies</h2>
-
-<div class="card">
-
-<div class="skills">
-
-<span class="skill">Financial Reporting</span>
-<span class="skill">Management Accounting</span>
-<span class="skill">Audit & Compliance</span>
-<span class="skill">Philippine Taxation</span>
-<span class="skill">SAP S/4HANA</span>
-<span class="skill">Power BI</span>
-<span class="skill">Excel VBA</span>
-<span class="skill">Power Query</span>
-<span class="skill">Python</span>
-<span class="skill">UiPath</span>
-<span class="skill">Power Automate</span>
-<span class="skill">RPA Development</span>
-<span class="skill">Data Analytics</span>
-<span class="skill">Internal Controls</span>
-<span class="skill">Team Leadership</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="experience">
-
-<h2 class="section-title">Professional Experience</h2>
-
-<div class="card">
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h4>Accounting Manager - Innovation</h4>
-<p>SM Supermalls | May 2024 - Present</p>
-</div>
-
-<div class="timeline-item">
-<h4>Accounting Officer (Assistant Manager)</h4>
-<p>SM Supermalls | October 2021 - April 2024</p>
-</div>
-
-<div class="timeline-item">
-<h4>External Auditor / Associate Auditor</h4>
-<p>BDO Roxas Cruz Tagle & Co. | August 2019 - September 2021</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="certifications">
-
-<h2 class="section-title">Certifications</h2>
-
-<div class="grid">
-
-<div class="cert-card">
-<h3>CPA</h3>
-<p>Certified Public Accountant</p>
-</div>
-
-<div class="cert-card">
-<h3>CTT</h3>
-<p>Certified Tax Technician</p>
-</div>
-
-<div class="cert-card">
-<h3>RPA Advanced Developer</h3>
-<p>Diploma in Robotic Process Automation</p>
-</div>
-
-<div class="cert-card">
-<h3>Xero Certified</h3>
-<p>Professional Certification</p>
-</div>
-
-<div class="cert-card">
-<h3>QuickBooks Online Certified</h3>
-<p>Professional Certification</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="section-title">Let's Connect</h2>
-
-<div class="card contact">
-
-<p><strong>Name:</strong> Welmar B. Zaratar</p>
-
-<p>
-<strong>Email:</strong>
-welmarzaratar67@gmail.com
-welmarzaratar67@gmail.com
-</a>
-</p>
-
-<p>
-<strong>Mobile:</strong>
-+63 906 910 4473
-</p>
-
-<p>
-<strong>LinkedIn:</strong>
-https://www.linkedin.com/in/welmar-zaratarcpa-ctt
-Visit Profile
-</a>
-</p>
-
-<p>
-<strong>Location:</strong>
-Bacoor, Cavite, Philippines
-</p>
-
-</div>
-
-</section>
-
-</div>
-
-<footer>
-
-<h3>Welmar B. Zaratar, CPA, CTT</h3>
-
-<p>
-Transforming Finance Through Technology, Automation, and Innovation
-</p>
-
-</footer>
-
+  <div id="app" class="min-h-screen bg-slate-50 font-sans text-slate-700 selection:bg-sky-200 selection:text-slate-950 dark:bg-slate-950 dark:text-slate-200">
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/85 text-white shadow-lg shadow-slate-950/10 backdrop-blur-xl">
+      <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+        <button id="brandButton" class="flex items-center gap-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Go to the top">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-sm font-black shadow-md shadow-blue-500/20">WZ</span>
+          <span class="hidden text-sm font-bold tracking-wide sm:block">Welmar Zaratar</span>
+        </button>
+
+        <div class="hidden items-center gap-1 lg:flex" id="desktopNav">
+          <button data-target="about" class="nav-link relative rounded-lg px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">About</button>
+          <button data-target="skills" class="nav-link relative rounded-lg px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Skills</button>
+          <button data-target="experience" class="nav-link relative rounded-lg px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Experience</button>
+          <button data-target="certifications" class="nav-link relative rounded-lg px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Certifications</button>
+          <button data-target="contact" class="nav-link relative rounded-lg px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Contact</button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="themeButton" class="grid h-10 w-10 place-items-center rounded-xl text-slate-300 transition hover:bg-white/10 hover:text-white" aria-label="Use dark theme">
+            <i id="themeIcon" data-lucide="moon" class="h-[18px] w-[18px]"></i>
+          </button>
+          <button id="menuButton" class="grid h-10 w-10 place-items-center rounded-xl text-slate-200 transition hover:bg-white/10 lg:hidden" aria-label="Toggle navigation" aria-expanded="false">
+            <i id="menuIcon" data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileNav" class="hidden border-t border-white/10 bg-slate-950 px-5 py-4 lg:hidden">
+        <button data-target="about" class="nav-link block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-300">About</button>
+        <button data-target="skills" class="nav-link block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-300">Skills</button>
+        <button data-target="experience" class="nav-link block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-300">Experience</button>
+        <button data-target="certifications" class="nav-link block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-300">Certifications</button>
+        <button data-target="contact" class="nav-link block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-300">Contact</button>
+      </div>
+    </nav>
+
+    <header class="relative isolate overflow-hidden bg-slate-950 pt-16 text-white">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute -left-24 top-20 h-80 w-80 rounded-full bg-blue-600/25 blur-3xl"></div>
+        <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/2 h-64 w-64 rounded-full bg-indigo-500/15 blur-3xl"></div>
+        <div class="grid-pattern absolute inset-0 opacity-[0.06]"></div>
+      </div>
+
+      <div class="mx-auto grid min-h-[720px] max-w-7xl items-center gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[1.25fr_.75fr] lg:py-28">
+        <div class="reveal visible">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-sky-300">
+            <i data-lucide="sparkles" class="h-[15px] w-[15px]"></i> Finance meets innovation
+          </div>
+          <h1 class="max-w-4xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            Welmar B. Zaratar
+            <span class="mt-3 block bg-gradient-to-r from-sky-300 via-blue-300 to-indigo-300 bg-clip-text text-3xl text-transparent sm:text-4xl">CPA, CTT</span>
+          </h1>
+          <p class="mt-7 max-w-3xl text-xl font-medium leading-8 text-slate-200 sm:text-2xl">
+            Finance Transformation Leader <span class="text-sky-400">•</span> Accounting Manager <span class="text-sky-400">•</span> Automation Developer
+          </p>
+          <p class="mt-6 max-w-3xl text-base leading-8 text-slate-400 sm:text-lg">
+            Helping organizations transform finance through automation, technology, data analytics, process improvement, and digital innovation.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="Welmar_Zaratar_CV.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-sky-500/20 transition hover:-translate-y-0.5 hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300">
+              <i data-lucide="download" class="h-[18px] w-[18px]"></i> Download CV
+            </a>
+            <a href="mailto:welmarzaratar67@gmail.com" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10">
+              <i data-lucide="mail" class="h-[18px] w-[18px]"></i> Contact me
+            </a>
+            <a href="https://www.linkedin.com/in/welmar-zaratar-cpa-ctt/	" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10">
+              <i data-lucide="linkedin" class="h-[18px] w-[18px]"></i> LinkedIn <i data-lucide="external-link" class="h-[14px] w-[14px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal scale-in visible relative mx-auto w-full max-w-md">
+          <div class="absolute inset-5 rounded-[2rem] bg-sky-400/20 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.07] p-7 shadow-2xl backdrop-blur-xl">
+            <div class="mb-7 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-sky-300">Professional focus</p>
+                <p class="mt-2 text-xl font-bold">Finance transformation</p>
+              </div>
+              <div class="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-blue-600/30"><i data-lucide="bar-chart-3"></i></div>
+            </div>
+            <div class="space-y-3" id="focusList"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative z-10 mx-auto -mt-10 max-w-7xl px-5 sm:px-8" aria-label="Career highlights">
+        <div id="statsGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </section>
+
+      <section id="about" class="scroll-mt-20 px-5 py-24 sm:px-8">
+        <div class="mx-auto max-w-5xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-400">Profile</p>
+            <h2 class="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl dark:text-white">About me</h2>
+          </div>
+          <div class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900">
+            <p class="text-lg leading-9 text-slate-600 dark:text-slate-300">Certified Public Accountant with more than seven years of experience across finance, accounting, audit, taxation, process automation, and innovation. Experienced in SAP S/4HANA, financial reporting, internal controls, digital transformation, and executive reporting. Currently serving as Accounting Manager - Innovation, leading finance innovation projects, automation initiatives, and business transformation programs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="scroll-mt-20 bg-white px-5 py-24 sm:px-8 dark:bg-slate-900/50">
+        <div class="mx-auto max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-400">Capabilities</p>
+            <h2 class="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl dark:text-white">Core competencies</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">A multidisciplinary toolkit combining accounting expertise, technology, analytics, automation, and leadership.</p>
+          </div>
+          <div id="skillsList" class="flex flex-wrap justify-center gap-3"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="scroll-mt-20 px-5 py-24 sm:px-8">
+        <div class="mx-auto max-w-5xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-400">Career</p>
+            <h2 class="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl dark:text-white">Professional experience</h2>
+          </div>
+          <div id="rolesList" class="relative ml-3 border-l-2 border-sky-200 pl-8 dark:border-sky-500/20 sm:ml-6 sm:pl-12"></div>
+        </div>
+      </section>
+
+      <section id="certifications" class="scroll-mt-20 bg-slate-950 px-5 py-24 text-white sm:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-sky-400">Credentials</p>
+            <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Certifications</h2>
+            <p class="mt-4 text-base leading-7 text-slate-300">Professional credentials supporting accounting, tax, and digital transformation expertise.</p>
+          </div>
+          <div id="certificationsGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="scroll-mt-20 px-5 py-24 sm:px-8">
+        <div class="mx-auto max-w-5xl">
+          <div class="overflow-hidden rounded-3xl bg-gradient-to-br from-blue-700 to-slate-950 p-8 text-white shadow-2xl shadow-blue-900/20 sm:p-12">
+            <div class="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-[0.25em] text-sky-300">Let's connect</p>
+                <h2 class="mt-4 text-3xl font-black tracking-tight sm:text-4xl">Build smarter finance together.</h2>
+                <p class="mt-5 leading-7 text-blue-100/80">Connect for finance transformation, automation, data analytics, and process-improvement opportunities.</p>
+              </div>
+              <div class="space-y-3">
+                <a href="mailto:welmarzaratar67@gmail.com" class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 transition hover:bg-white/[0.12]">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-sky-300"><i data-lucide="mail" class="h-5 w-5"></i></span>
+                  <span class="min-w-0"><span class="block text-xs font-bold uppercase tracking-wide text-blue-200">Email</span><span class="block truncate text-sm font-semibold sm:text-base">welmarzaratar67@gmail.com</span></span>
+                  <i data-lucide="chevron-right" class="ml-auto h-[18px] w-[18px] shrink-0 text-blue-200"></i>
+                </a>
+                <a href="tel:+639069104473" class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 transition hover:bg-white/[0.12]">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-sky-300"><i data-lucide="phone" class="h-5 w-5"></i></span>
+                  <span><span class="block text-xs font-bold uppercase tracking-wide text-blue-200">Mobile</span><span class="block text-sm font-semibold sm:text-base">+63 906 910 4473</span></span>
+                  <i data-lucide="chevron-right" class="ml-auto h-[18px] w-[18px] text-blue-200"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/welmar-zaratar-cpa-ctt/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 transition hover:bg-white/[0.12]">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-sky-300"><i data-lucide="linkedin" class="h-5 w-5"></i></span>
+                  <span><span class="block text-xs font-bold uppercase tracking-wide text-blue-200">LinkedIn</span><span class="block text-sm font-semibold sm:text-base">Visit profile</span></span>
+                  <i data-lucide="external-link" class="ml-auto h-[18px] w-[18px] text-blue-200"></i>
+                </a>
+                <div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-sky-300"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                  <span><span class="block text-xs font-bold uppercase tracking-wide text-blue-200">Location</span><span class="block text-sm font-semibold sm:text-base">Bacoor, Cavite, Philippines</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white px-5 py-8 dark:border-slate-800 dark:bg-slate-950">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+        <div>
+          <p class="font-black text-slate-950 dark:text-white">Welmar B. Zaratar, CPA, CTT</p>
+          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Transforming finance through technology, automation, and innovation.</p>
+        </div>
+        <p class="text-sm text-slate-500 dark:text-slate-400">© <span id="year"></span> All rights reserved.</p>
+      </div>
+    </footer>
+
+    <button id="topButton" class="fixed bottom-5 right-5 z-40 hidden h-12 w-12 place-items-center rounded-2xl bg-blue-600 text-white shadow-xl shadow-blue-600/30 transition hover:-translate-y-1 hover:bg-blue-500" aria-label="Back to top">
+      <i data-lucide="arrow-up" class="h-5 w-5"></i>
+    </button>
+  </div>
+
+  <script>
+    const sections = ['about', 'skills', 'experience', 'certifications', 'contact'];
+    const skills = ['Financial Reporting','Management Accounting','Audit & Compliance','Philippine Taxation','SAP S/4HANA','Power BI','Excel VBA','Power Query','Python','UiPath','Power Automate','RPA Development','Data Analytics','Internal Controls','Team Leadership'];
+    const roles = [
+      { title:'Accounting Manager - Innovation', company:'SM Supermalls', period:'May 2024 - Present', current:true, description:'Leading finance innovation projects, automation initiatives, and business transformation programs.' },
+      { title:'Accounting Officer (Assistant Manager)', company:'SM Supermalls', period:'October 2021 - April 2024', description:'Supported accounting operations, controls, reporting, and process-improvement programs.' },
+      { title:'External Auditor / Associate Auditor', company:'BDO Roxas Cruz Tagle & Co.', period:'August 2019 - September 2021', description:'Performed external audit procedures, financial-statement reviews, and compliance assessments.' }
+    ];
+    const certifications = [
+      { short:'CPA', name:'Certified Public Accountant', icon:'shield-check' },
+      { short:'CTT', name:'Certified Tax Technician', icon:'award' },
+      { short:'RPA', name:'Advanced Developer, Robotic Process Automation', icon:'workflow' },
+      { short:'Xero', name:'Xero Certified Professional', icon:'circle-check-big' },
+      { short:'QBO', name:'QuickBooks Online Certified', icon:'file-spreadsheet' }
+    ];
+    const stats = [
+      { value:'7+', label:'Years of experience', icon:'briefcase-business' },
+      { value:'29+', label:'Automation initiatives', icon:'workflow' },
+      { value:'CPA', label:'Licensed accountant', icon:'shield-check' },
+      { value:'CTT', label:'Tax professional', icon:'award' }
+    ];
+
+    document.getElementById('focusList').innerHTML = ['Automation & RPA','Digital finance','Data analytics','Governance & controls'].map(item => `
+      <div class="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-950/25 px-4 py-3.5">
+        <i data-lucide="circle-check-big" class="h-[18px] w-[18px] text-sky-300"></i><span class="text-sm font-semibold text-slate-100">${item}</span>
+      </div>`).join('');
+
+    document.getElementById('statsGrid').innerHTML = stats.map(({value,label,icon}) => `
+      <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-900">
+        <div class="flex items-start justify-between"><div><p class="text-3xl font-black text-slate-950 dark:text-white">${value}</p><p class="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">${label}</p></div><span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-sky-400"><i data-lucide="${icon}" class="h-5 w-5"></i></span></div>
+      </div>`).join('');
+
+    document.getElementById('skillsList').innerHTML = skills.map(skill => `<span class="reveal rounded-full border border-blue-100 bg-blue-50 px-4 py-2.5 text-sm font-bold text-blue-800 transition hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-100 dark:border-blue-400/10 dark:bg-blue-500/10 dark:text-sky-300">${skill}</span>`).join('');
+
+    document.getElementById('rolesList').innerHTML = roles.map(role => `
+      <article class="reveal from-left relative mb-7 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm last:mb-0 dark:border-slate-800 dark:bg-slate-900">
+        <span class="absolute -left-[43px] top-7 h-5 w-5 rounded-full border-4 border-slate-50 bg-blue-600 ring-4 ring-blue-100 dark:border-slate-950 dark:ring-blue-500/20 sm:-left-[59px]"></span>
+        <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-start"><div><div class="flex flex-wrap items-center gap-2"><h3 class="text-xl font-black text-slate-950 dark:text-white">${role.title}</h3>${role.current ? '<span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">Current</span>' : ''}</div><p class="mt-1 font-bold text-blue-600 dark:text-sky-400">${role.company}</p></div><p class="shrink-0 text-sm font-semibold text-slate-500 dark:text-slate-400">${role.period}</p></div>
+        <p class="mt-4 leading-7 text-slate-600 dark:text-slate-300">${role.description}</p>
+      </article>`).join('');
+
+    document.getElementById('certificationsGrid').innerHTML = certifications.map(({short,name,icon}) => `
+      <div class="reveal group rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-sky-400/30 hover:bg-white/[0.09]">
+        <div class="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-blue-600/20"><i data-lucide="${icon}" class="h-[23px] w-[23px]"></i></div><h3 class="text-xl font-black">${short}</h3><p class="mt-2 text-sm leading-6 text-slate-400">${name}</p>
+      </div>`).join('');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+
+    const root = document.documentElement;
+    const themeButton = document.getElementById('themeButton');
+    const menuButton = document.getElementById('menuButton');
+    const mobileNav = document.getElementById('mobileNav');
+    const topButton = document.getElementById('topButton');
+    let menuOpen = false;
+
+    function updateThemeIcon() {
+      const dark = root.classList.contains('dark');
+      themeButton.innerHTML = `<i data-lucide="${dark ? 'sun' : 'moon'}" class="h-[18px] w-[18px]"></i>`;
+      themeButton.setAttribute('aria-label', dark ? 'Use light theme' : 'Use dark theme');
+      lucide.createIcons();
+    }
+
+    themeButton.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('portfolio-theme', root.classList.contains('dark') ? 'dark' : 'light');
+      updateThemeIcon();
+    });
+
+    if (localStorage.getItem('portfolio-theme') === 'dark') root.classList.add('dark');
+    updateThemeIcon();
+
+    function setMenu(open) {
+      menuOpen = open;
+      mobileNav.classList.toggle('hidden', !open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}"></i>`;
+      lucide.createIcons();
+    }
+
+    menuButton.addEventListener('click', () => setMenu(!menuOpen));
+
+    function scrollTopSmooth() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    document.getElementById('brandButton').addEventListener('click', scrollTopSmooth);
+    topButton.addEventListener('click', scrollTopSmooth);
+
+    document.querySelectorAll('.nav-link').forEach(button => button.addEventListener('click', () => {
+      document.getElementById(button.dataset.target)?.scrollIntoView({ behavior: 'smooth' });
+      setMenu(false);
+    }));
+
+    function setActiveSection(id) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const active = link.dataset.target === id;
+        link.classList.toggle('active-nav', active && link.closest('#desktopNav'));
+        if (link.closest('#mobileNav')) {
+          link.classList.toggle('bg-sky-500/10', active);
+          link.classList.toggle('text-sky-300', active);
+          link.classList.toggle('text-slate-300', !active);
+        }
+      });
+    }
+
+    function onScroll() {
+      topButton.classList.toggle('hidden', window.scrollY <= 600);
+      topButton.classList.toggle('grid', window.scrollY > 600);
+      const marker = window.scrollY + 180;
+      let current = 'about';
+      sections.forEach(id => {
+        const element = document.getElementById(id);
+        if (element && element.offsetTop <= marker) current = id;
+      });
+      setActiveSection(current);
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
 </body>
 </html>
